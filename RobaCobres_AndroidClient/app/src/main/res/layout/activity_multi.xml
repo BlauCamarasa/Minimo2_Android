@@ -1,0 +1,190 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="87dp"
+        android:layout_height="21dp"
+        android:layout_above="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="2dp"
+        android:text="Forum"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="87dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/Button_tienda"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="-4dp"
+        android:layout_toStartOf="@+id/Button_tienda"
+        android:onClick="onClickPrivate"
+        app:srcCompat="@android:drawable/stat_notify_chat" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:indeterminate="true"
+        android:padding="0dp"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/Button_tienda"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="Ir a la tienda"
+        android:onClick="onClickTienda"
+        android:scaleType="centerInside"
+        android:src="@drawable/shop" />
+
+    <Button
+        android:id="@+id/Button_misobjetos"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_tienda"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickMyItems"
+        android:text="Mis objetos"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_play"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_tienda"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickPlay"
+        android:text="Play"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_VideosSoporte"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_play"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickVideos"
+        android:text="Videos soporte"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_VenderCobre"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_misobjetos"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickVenderCobre"
+        android:text="Vender Cobre"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_VerMisDatos"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_VideosSoporte"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickSeeMyData"
+        android:text="VER MIS DATOS"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_eliminarcuenta"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/Button_VenderCobre"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickEliminarCuenta"
+        android:text="Eliminar cuenta"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Button_logout"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_gradient_logout"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="onClickLogout"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="87dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/Button_tienda"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="-4dp"
+        android:layout_toStartOf="@+id/Button_tienda"
+        android:onClick="onClickForum"
+        app:srcCompat="@android:drawable/stat_notify_chat" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="87dp"
+        android:layout_height="21dp"
+        android:layout_above="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton2"
+        android:layout_alignEnd="@+id/imageButton2"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:text="Private"
+        android:textAlignment="center" />
+
+</RelativeLayout>
+
+
+
+
+

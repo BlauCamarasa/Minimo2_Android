@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_upload_song.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/BotonRetroceder"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:backgroundTint="#070707"
+        android:onClick="onClickBotonRetroceder" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="fantasy"
+        android:text="CHANGE CORREO"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/ActualCorreoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="fantasy"
+        android:hint="Enter the actual mail" />
+
+    <EditText
+        android:id="@+id/NewCorreoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="fantasy"
+        android:hint="Enter the new mail" />
+
+    <EditText
+        android:id="@+id/CodeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="fantasy"
+        android:hint="Enter the code obtained in the current mail" />
+
+    <Button
+        android:id="@+id/btn_sendCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickGetCode"
+        android:paddingHorizontal="16dp"
+        android:text="Get Code" />
+
+    <Button
+        android:id="@+id/btn_change"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="fantasy"
+        android:onClick="onClickChange"
+        android:paddingHorizontal="16dp"
+        android:text="Change" />
+
+</LinearLayout>

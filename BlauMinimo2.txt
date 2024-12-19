@@ -1,0 +1,4 @@
+Se ha hecho un boton en el multiactivities donde se puede acceder a los videos de soporte, se ha hecho un adapter 
+para el recycledview y un diseño que muestra la descripcion del video y el video en cuestion, el
+problema que tengo es que no se puede reproducir el video y por tiempo no me ha dado tiempo a 
+arreglarlo.
