@@ -81,7 +81,7 @@ public class ServiceBBDD {
         call.enqueue(new Callback<List<Video>>() {
             @Override
             public void onResponse(Call<List<Video>> call, Response<List<Video>> response) {
-                if (response.isSuccessful() && response.body() != null) {
+                if (response.code() == 201 && response.body() != null) {
                     List<Video> videos = response.body();
                     callback.onVideoCallback(videos);
                     for (Video vid : videos) {

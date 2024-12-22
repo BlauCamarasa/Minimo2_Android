@@ -12,12 +12,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="8dp"
+        android:layout_margin="8dp"/>
 
-    <VideoView
-        android:id="@+id/videoView"
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp" />
 
 </LinearLayout>
+

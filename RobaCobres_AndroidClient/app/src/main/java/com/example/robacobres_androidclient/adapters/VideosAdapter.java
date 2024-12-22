@@ -1,49 +1,42 @@
 package com.example.robacobres_androidclient.adapters;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.net.Uri;
-import android.widget.VideoView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import androidx.lifecycle.LifecycleOwner;
 import com.example.robacobres_androidclient.R;
-import com.example.robacobres_androidclient.models.Item;
 import com.example.robacobres_androidclient.models.Video;
-import com.example.robacobres_androidclient.services.ServiceBBDD;
 
 import java.util.List;
 
 public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder> {
     private List<Video> videoList;
-    private Context context;
-    private ServiceBBDD service;
+    private LifecycleOwner lifecycleOwner;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView Description;
-        VideoView videoView;
+        YouTubePlayerView youtubePlayerView;
 
         public ViewHolder(View v) {
             super(v);
             Description = itemView.findViewById(R.id.Descripcion);
-            videoView = itemView.findViewById(R.id.videoView);
+            youtubePlayerView = itemView.findViewById(R.id.youtube_player_view);
         }
     }
 
-    public VideosAdapter(List<Video> videoList) {
+    public VideosAdapter(List<Video> videoList, LifecycleOwner lifecycleOwner) {
         this.videoList = videoList;
+        this.lifecycleOwner = lifecycleOwner;
     }
 
     @Override
     public VideosAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.videoview, parent, false);
-        // set the view's size, margins, paddings and layout parameters
         VideosAdapter.ViewHolder vh = new VideosAdapter.ViewHolder(v);
         return vh;
     }
@@ -53,14 +46,16 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
     public void onBindViewHolder(VideosAdapter.ViewHolder holder, final int position) {
         Video video = videoList.get(position);
         holder.Description.setText(video.getDescripcion());
-
-        // Configurar el VideoView con la URL del video
-        Uri videoUri = Uri.parse(video.getUrl());
-        holder.videoView.setVideoURI(videoUri);
-        // Iniciar la reproducción automáticamente
-        holder.videoView.setOnPreparedListener(mediaPlayer -> {
-            mediaPlayer.setLooping(true); // Opcional: para reproducir en bucle
-            holder.videoView.start();
+        lifecycleOwner.getLifecycle().addObserver(holder.youtubePlayerView);
+        holder.youtubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(YouTubePlayer youTubePlayer) {
+                //Se obtiene el id a partir de la url
+                String videoId = obtenerIDdeURL(video.getUrl());
+                if (videoId != null) {
+                    youTubePlayer.cueVideo(videoId, 0);
+                }
+            }
         });
     }
 
@@ -68,6 +63,24 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
     public int getItemCount() {
         return videoList.size();
     }
+
+    //Para obtener el id a partir de la url
+    private String obtenerIDdeURL(String videoUrl) {
+        String videoId = null;
+        if (videoUrl != null && videoUrl.contains("youtube.com")) {
+            String[] splitUrl = videoUrl.split("v=");
+            if (splitUrl.length > 1) {
+                videoId = splitUrl[1].split("&")[0];
+            }
+        } else if (videoUrl != null && videoUrl.contains("youtu.be")) {
+            String[] splitUrl = videoUrl.split("youtu\\.be/");
+            if (splitUrl.length > 1) {
+                videoId = splitUrl[1];
+            }
+        }
+        return videoId;
+    }
 }
+
 
 

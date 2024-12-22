@@ -12,6 +12,7 @@ retrofit = "2.9.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
 
+
 [libraries]
 appcompat-v151 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
